@@ -15,3 +15,9 @@ const knex = require('knex')({
 let app = express();
 
 app.use(bodyParser.json());
+
+app.get('/usuario', (requisicao, resposta, next) => {
+  knex('tbl_usuario').then((dados) => {
+    res.send(dados);
+  }, next);
+});
