@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 
 app.get('/usuario', (requisicao, resposta, next) => {
   knex('tbl_usuario').then((dados) => {
-    res.send(dados);
+    resposta.send(dados);
   }, next);
 });
 
@@ -46,7 +46,8 @@ app.put('/usuario/:id', (requisicao, resposta, next) => {
     .where('id', id)
     .update(requisicao.body)
     .then((dados) => {
-      resposta.send(dados);
+      resposta.sendStatus(dados);
+      break;
     }, next);
 });
 
