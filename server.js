@@ -36,7 +36,7 @@ app.delete('/usuario/:id', (requisicao, resposta, next) => {
     .where('id', id)
     .delete()
     .then(() => {
-      resposta.send('Apagado o usuário de id: '+id);
+      resposta.sendStatus(200).send({msg: 'Apagado o usuário de id: '+id});
     }, next);
 });
 
@@ -46,8 +46,7 @@ app.put('/usuario/:id', (requisicao, resposta, next) => {
     .where('id', id)
     .update(requisicao.body)
     .then((dados) => {
-      resposta.sendStatus(dados);
-      break;
+      resposta.sendStatus(200).send(dados);
     }, next);
 });
 
@@ -58,7 +57,7 @@ app.get('/usuario/:id', (requisicao, resposta, next) => {
     .where('id', id)
     .first()
     .then((dados) => {
-      res.send(dados);
+      resposta.send(dados);
     }, next);
 });
 
