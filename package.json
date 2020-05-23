@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
@@ -15,8 +15,5 @@
     "knex": "^0.21.1",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.4"
-  },
-  "scripts": {
-    "dev": "nodemon server.js"
   }
 }
