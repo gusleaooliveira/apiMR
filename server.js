@@ -49,3 +49,18 @@ app.put('/usuario/:id', (requisicao, resposta, next) => {
       resposta.send(dados);
     }, next);
 });
+
+
+app.get('/usuario/:id', (requisicao, resposta, next) => {
+  let id = requisicao.params.id;
+  knex('tbl_usuario')
+    .where('id', id)
+    .first()
+    .then((dados) => {
+      res.send(dados);
+    }, next);
+});
+
+http.createServer(app).listen(9999, () => {
+  console.log('http://localhost:9999/');
+});
